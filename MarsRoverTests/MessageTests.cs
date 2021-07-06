@@ -14,7 +14,7 @@ namespace MarsRoverTests
         {
             try
             {
-                new Message("");
+                new Message("", commands);
             }
             catch (ArgumentNullException ex)
             {
@@ -24,7 +24,7 @@ namespace MarsRoverTests
         [TestMethod]
         public void ConstructorSetsName()
         {
-            Message newMessage = new Message("New Message Added");
+            Message newMessage = new Message("New Message Added", commands);
             Assert.AreEqual("New Message Added", newMessage.Name);
         }
 

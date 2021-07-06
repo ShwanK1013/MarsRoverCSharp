@@ -22,6 +22,7 @@ namespace MarsRover
                 {
                     throw new InvalidOperationException("Unknown Command");
                 }
+
                 if (command.CommandType == "MODE_CHANGE")
                 {
                     this.Mode = command.NewMode;
@@ -40,9 +41,7 @@ namespace MarsRover
             }
 
 
-            //Command newCommand = new Command();
-            //Position = newCommand.NewPostion;
-            //Mode = newCommand.NewMode;
+            
         }
 
         
