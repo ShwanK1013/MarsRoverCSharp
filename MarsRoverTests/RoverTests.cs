@@ -32,7 +32,7 @@ namespace MarsRoverTests
         [TestMethod]
         public void RespondsCorrectlyToModeChangeCommand()
         {
-            Command[] commands = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 500) };
+            Command[] commands = { new Command("MODE_CHANGE", "LOW_POWER")};
             Message message = new Message("Update 1", commands);
             Rover roverTest = new Rover(0);
             roverTest.ReceiveMessage(message);

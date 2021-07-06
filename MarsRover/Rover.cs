@@ -28,7 +28,7 @@ namespace MarsRover
                     this.Mode = command.NewMode;
                 }
 
-                if (command.NewMode=="LOW_POWER")
+                if (command.NewMode=="LOW_POWER" && command.CommandType == "MOVE" )
                 {
 
                     throw new InvalidOperationException("Does Not Move In LowPower");
