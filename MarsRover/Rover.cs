@@ -18,10 +18,15 @@ namespace MarsRover
         {
             foreach (Command command in message.Commands)
             {
+                if (command.CommandType != "MODE_CHANGE" && command.CommandType != "MOVE")
+                {
+                    throw new InvalidOperationException("Unknown Command");
+                }
                 if (command.CommandType == "MODE_CHANGE")
                 {
                     this.Mode = command.NewMode;
                 }
+
                 if (command.NewMode=="LOW_POWER")
                 {
 

@@ -70,7 +70,23 @@ namespace MarsRoverTests
 
             Assert.IsTrue(500 == roverTest.Position);
         }
+        [TestMethod]
+        public void RoverReturnsAMessageForAnUnknownCommand()
+        {
 
+            Command[] commands = { new Command("123", "LOW_POWER"), new Command("435", 500) };
+            Message message = new Message("Update 1", commands);
+            Rover roverTest = new Rover(0);
+
+            try
+            {
+                roverTest.ReceiveMessage(message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Assert.AreEqual("Unknown Command", ex.Message);
+            }
+        }
 
 
 
