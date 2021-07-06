@@ -9,6 +9,16 @@ namespace MarsRover
 
         public Rover(int position)
         {
+            Position = position;
+            Mode = "NORMAL";
+            GeneratorWatts = 110;
+        }
+        
+        public void ReceiveMessage(Message message)
+        {
+            Command newCommand = new Command();
+            Position = newCommand.NewPostion;
+            
         }
 
         public override string ToString()
