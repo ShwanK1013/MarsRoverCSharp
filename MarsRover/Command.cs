@@ -9,7 +9,7 @@ namespace MarsRover
 
 
         public Command() { }
-
+        public string[] command = new string[] { };
         public Command(string commandType)
         {
             CommandType = commandType;
@@ -31,12 +31,14 @@ namespace MarsRover
 
         public Command(string commandType, string modeType)
         {
+            Rover newRover = new Rover(0);
             if (String.IsNullOrEmpty(commandType))
             {
                 throw new ArgumentNullException(commandType, "Command type required.");
             }
-
+            CommandType = commandType;
             NewMode = modeType;
+            newRover.Mode = modeType;
 
         }
         
