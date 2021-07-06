@@ -22,6 +22,16 @@ namespace MarsRover
                 {
                     this.Mode = command.NewMode;
                 }
+                if (command.NewMode=="LOW_POWER")
+                {
+
+                    throw new InvalidOperationException("Does Not Move In LowPower");
+                    
+                }
+                else
+                {
+                    this.Position = command.NewPostion;
+                }
             }
 
 
@@ -30,15 +40,7 @@ namespace MarsRover
             //Mode = newCommand.NewMode;
         }
 
-        //public Rover (Message message)
-        //{
-        //    Command newCommand = new Command();
-        //    ReceiveMessage(new Message(name, commands));
-        //    if (newCommand.CommandType == "Mode_Change")
-        //    {
-        //        Mode = newCommand.NewMode;
-        //    }
-        //}
+        
 
         public override string ToString()
         {

@@ -40,11 +40,39 @@ namespace MarsRoverTests
 
             Assert.AreEqual("LOW_POWER", roverTest.Mode);
         }
+
+        [TestMethod]
+        public void DoesNotMoveInLowPower()
+        {
             
-
-
-
-
-
+            Command[] commands = { new Command("MODE_CHANGE", "LOW_POWER"), new Command("MOVE", 500) };
+            Message message = new Message("Update 1", commands);
+            Rover roverTest = new Rover(0);
+            
+            try
+            {
+                roverTest.ReceiveMessage(message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Assert.AreEqual("Does Not Move In LowPower", ex.Message);
+            }
         }
+
+        [TestMethod]
+        public void PositionChangesFromMoveCommand()
+        {
+            Command[] commands = { new Command("MODE_CHANGE", "HIGH_POWER"), new Command("MOVE", 500) };
+            Message message = new Message("Update 1", commands);
+            Rover roverTest = new Rover(0);
+            roverTest.ReceiveMessage(message);
+
+
+            Assert.IsTrue(500 == roverTest.Position);
+        }
+
+
+
+
+    }
 }
